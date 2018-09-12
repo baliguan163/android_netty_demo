@@ -6,7 +6,6 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 
 public class NettyClientHandler extends ChannelInboundHandlerAdapter {
     private NettyClient nettyClient = null;
-
     public NettyClientHandler(NettyClient nettyClient) {
         super();
         this.nettyClient = nettyClient;
@@ -14,7 +13,6 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
         String strMsg = (String) msg;
         Log.d("回复的消息：", strMsg);
         new CommandDecoder(strMsg).decode();//将返回的消息进行解析
